@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Directory Listing</title>
-  <style>
-    ul {
-      list-style-type: none;
-    }
-  </style>
-</head>
-<body>
-  <h1>Directory Listing</h1>
-  <ul id="file-list"></ul>
-
-  <script>
-    fetch('https://api.github.com/repos/jakenangle/testing/contents/')
-      .then(response => response.json())
-      .then(data => {
-        const fileList = document.getElementById('file-list');
-        data.forEach(file => {
-          const listItem = document.createElement('li');
-          const link = document.createElement('a');
-          link.href = file.html_url;
-          link.textContent = file.name;
-          listItem.appendChild(link);
-          fileList.appendChild(listItem);
-        });
-      })
-  </script>
-</body>
-</html>
+<script>
+  fetch('https://api.github.com/repos/jakenangle/jakenangle.github.io/contents/')
+    .then(response => response.json())
+    .then(data => {
+      const fileList = document.getElementById('file-list');
+      data.forEach(file => {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `https://jakenangle.github.io/${file.path}`;
+        link.textContent = file.name;
+        listItem.appendChild(link);
+        fileList.appendChild(listItem);
+      });
+    });
+</script>
