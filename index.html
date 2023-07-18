@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Directory Listing</title>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Directory Listing</h1>
+  <ul id="file-list"></ul>
+
 <script>
   fetch('https://api.github.com/repos/jakenangle/jakenangle.github.io/contents/')
     .then(response => response.json())
